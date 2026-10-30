@@ -29,8 +29,9 @@ class AdminProjectController extends Controller
         ]);
 
         $imagePath = null;
+
         if ($request->hasFile('image')) {
-            $imagePath = time() . '.' . $request->file('image')->getClientOriginalName();
+            $imagePath = time() . '.' . $request->file('image')->extension();
             $request->file('image')->move(public_path('images'), $imagePath);
         }
 
@@ -42,7 +43,8 @@ class AdminProjectController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('projects.index')->with('success', 'Project created successfully.');
+        return redirect()->route('projects.index')
+            ->with('success', 'Project created successfully.');
     }
 
     public function edit($id)
@@ -68,7 +70,7 @@ class AdminProjectController extends Controller
             // if ($project->image) {
             //     unlink(public_path('images/' . $project->image));
             // }
-            $imagePath = time() . '.' . $request->file('image')->getClientOriginalName();
+            $imagePath = time() . '.' . $request->file('image')->extension();
             $request->file('image')->move(public_path('images'), $imagePath);
             $project->image = $imagePath;
         }

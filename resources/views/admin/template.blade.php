@@ -85,7 +85,7 @@
 
     <footer class="bg-white text-dark text-center py-3 mt-5 border-top">
         <!-- <div class="container"> -->
-        <p class="mb-0">&copy; {{ date('Y') }} UNPAM. All rights reserved.</p>
+        <p class="mb-0">&copy; {{ date('Y') }} Herlina Triansah - 251011700828.</p>
         <!-- </div> -->
     </footer>
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
